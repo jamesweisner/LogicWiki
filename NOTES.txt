@@ -1,0 +1,49 @@
+Wiki + Snopes + Redit
+
+Goal:
+	evaluate arguments
+
+Means:
+	deconstruction
+		logical framework
+		recursion
+		tagging
+	reputation
+		weighted vote
+		democracy
+		gamification
+		consistency as predictor of good
+
+http://en.wikipedia.org/wiki/Logical_form
+http://en.wikipedia.org/wiki/Principia_Mathematica
+
+
+Database:
+	User
+		userID
+		name
+		reputation
+		email
+	Argument
+		argumentID
+		userID
+		premises (ordered list of claimIDs)
+		conclusion (claimID)
+		time
+		validity
+		relevance
+	Claim
+		claimID
+		order
+		formalType
+		validity
+		relevance
+		contents
+	Noun
+		nounID
+		source
+	Vote
+		userID
+		argumentID
+		validity
+		relevance
