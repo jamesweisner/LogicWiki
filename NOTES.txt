@@ -1,7 +1,5 @@
-Wiki + Snopes + Redit
-
 Goal:
-	evaluate arguments
+	Provide a reliable resource for deciding the validity of complex arguments.
 
 Means:
 	deconstruction
@@ -14,8 +12,58 @@ Means:
 		gamification
 		consistency as predictor of good
 
+
+
+when a new argument is created, it starts as a draft
+the author can make changes, and ask for advice/help from others
+once the author is satisfied, the argument is "published"
+published arguments can be voted on, and cannot be changed.
+users can "support" or "reject" arguments they author.
+the supporter of an argument may change their mind and reject it and vica versa.
+
+how are the validity of propositions evaluated?
+		atomic propositions are voted on
+		propositions that are the premise of one argument
+				may be the conclusions of another argument
+				in which case their validity takes that argument into account
+
+how do i evaluate the validity of argument 1?
+		check that conclusion follows from premise using formal logic
+		evaluate the validity of premises
+			premise 1 is the conclusion of argument 2
+				it is valid if argument 2 is valid
+				examine argument 2 for its currently calculated validity (not recursive)
+				apply that to premise 1
+			check validity of premise 2
+				voting history only since no arguments have been made
+
+Argument 1:
+if A then B -> wikipedia
+if B then C -> wikipedia
+-----------
+if A then C -> valid
+
+Argument 2:
+if A then C -> Argument 1
+if C then B -> wikipedia
+-----------
+if A then B -> circular FALLACY
+
+Argument 3:
+if A then C -> wikipedia
+if C then B -> wikipedia
+-----------
+if A then B -> valid, but still in tension with argument 1
+
 http://en.wikipedia.org/wiki/Logical_form
 http://en.wikipedia.org/wiki/Principia_Mathematica
+http://en.wikipedia.org/wiki/List_of_valid_argument_forms
+http://en.wikipedia.org/wiki/Rule_of_inference
+http://en.wikipedia.org/wiki/Categorical_syllogism
+http://en.wikipedia.org/wiki/Propositional_calculus
+http://en.wikipedia.org/wiki/Second-order_logic
+http://en.wikipedia.org/wiki/Type_theory
+
 
 
 Database:
@@ -27,17 +75,16 @@ Database:
 	Argument
 		argumentID
 		userID
-		premises (ordered list of claimIDs)
-		conclusion (claimID)
-		time
+		premises (ordered list of propositionIDs)
+		relevance (ordered list of relevance of premises)
+		conclusion (propositionID)
 		validity
-		relevance
-	Claim
-		claimID
+		time
+	Proposition
+		propositionID
 		order
 		formalType
 		validity
-		relevance
 		contents
 	Noun
 		nounID
@@ -46,4 +93,3 @@ Database:
 		userID
 		argumentID
 		validity
-		relevance
