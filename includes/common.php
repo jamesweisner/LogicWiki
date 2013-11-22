@@ -1,13 +1,21 @@
 <?php
 
+function showPage($page, $title, $data)
+{
+	template($page, array(
+		'title' => $title,
+		'data'  => $data,
+	));
+}
+
 function template($file, $args = array())
 {
-	$game = getGame();
 	extract($args);
 	unset($args);
-	if(!file_exists("./templates/$game/$file.html"))
-		$game = 'default';
-	include "./templates/$game/$file.html";
+	if(file_exists("./html/$file.html"))
+		include "./html/$file.html";
+	else
+		handleError('Template not found.', array('file' => $file));
 }
 
 function handleError($error, $args = null)

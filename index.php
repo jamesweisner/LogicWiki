@@ -15,30 +15,33 @@ $args = explode('/', $_GET['q']);
 switch($page = array_pop($args))
 {
 	case '':
+	case 'search':
 	{
-		template('search', array(
+		showPage('search', 'Search', array(
 			'results' => searchResults(),
 		));
 		exit;
 	}
 	case 'argument':
 	{
-		template('argument', array(
-			'argument' => argumentView($args),
+		$argument = argumentView($args);
+		showPage('argument', $argument['title'], array(
+			'argument' => $argument,
 		));
 		exit;
 	}
 	case 'login':
 	{
-		template('login', array(
+		showPage('login', 'Login', array(
 			'error' => userLogin(),
 		));
 		exit;
 	}
 	case 'user':
 	{
-		template('user', array(
-			'user' => userView($args),
+		$user = userView($args);
+		showPage('user', $user['title'], array(
+			'user' => $user,
 		));
 		exit;
 	}
@@ -51,7 +54,7 @@ switch($page = array_pop($args))
 	default:
 	{
 		header('HTTP/1.0 404 Not Found');
-		template('error', array(
+		showPage('error', 'Page Not Found', array(
 			'message' => 'Page not found: ' . htmlspecialchars($_GET['q']),
 		));
 		exit;

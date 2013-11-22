@@ -1,0 +1,8 @@
+<form method="post">
+	<input type="hidden" name="random" value="<?php echo (int) $_SESSION['login_random']; ?>" />
+	<label>Email</label>
+	<input type="text" name="email" value="<?php echo htmlspecialchars($_POST['email']); ?>" />
+	<label>Password</label>
+	<input type="password" name="password" value="<?php echo htmlspecialchars($_POST['password']); ?>" />
+	<input type="submit" value="Login" />
+</form>
