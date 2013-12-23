@@ -1,4 +1,4 @@
-Goal:
+ Goal:
 	Provide a reliable resource for deciding the validity of complex arguments.
 
 Means:
@@ -65,31 +65,11 @@ http://en.wikipedia.org/wiki/Second-order_logic
 http://en.wikipedia.org/wiki/Type_theory
 
 
+deductive reasoning (syllogisms):
 
-Database:
-	User
-		userID
-		name
-		reputation
-		email
-	Argument
-		argumentID
-		userID
-		premises (ordered list of propositionIDs)
-		relevance (ordered list of relevance of premises)
-		conclusion (propositionID)
-		validity
-		time
-	Proposition
-		propositionID
-		order
-		formalType
-		validity
-		contents
-	Noun
-		nounID
-		source
-	Vote
-		userID
-		argumentID
-		validity
+soundness: is the premise true or not?
+validity: correct formal logic, checked by computer
+
+inductive reasoning:
+
+pile on the facts. not formal.

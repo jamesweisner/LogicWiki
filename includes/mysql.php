@@ -14,7 +14,8 @@ function mysqlConnect()
 		handleError('MySQL select database failure.');
 		return false;
 	}
-	$version = (int) mysql_result(mysqlQuery('SELECT version FROM Settings'));
+	$result = mysqlQuery("SELECT value FROM Settings WHERE name = 'version'");
+	$version = (int) mysql_result($result, 0);
 	if($version < MYSQL_VERSION)
 	{
 		for($i = $version; $i < MYSQL_VERSION; $i++)
@@ -27,7 +28,8 @@ function mysqlConnect()
 					'file' => $file,
 				));
 		}
-		mysqlQuery('UPDATE Settings SET version = ' . intVal(MYSQL_VERSION));
+		$version = intVal(MYSQL_VERSION);
+		mysqlQuery("UPDATE Settings SET value = $version AND name = 'version'");
 	}
 	return $link;
 }
@@ -42,7 +44,7 @@ function mysqlQuery($query, $type = false)
 			'query' => $query,
 			'errno' => mysql_errno(),
 			'error' => mysql_error(),
-		);
+		));
 	}
 	switch($type)
 	{

@@ -2,8 +2,9 @@
 
 function showPage($page, $title, $data)
 {
-	template($page, array(
+	template('page', array(
 		'title' => $title,
+		'page'  => $page,
 		'data'  => $data,
 	));
 }
