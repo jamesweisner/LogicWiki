@@ -1,5 +1,5 @@
 <form method="post">
-	<input type="text" name="q" value="<?php echo htmlspecialchars($_POST['q']); ?>" />
+	<input type="text" name="q" value="<?php echox($_POST['q']); ?>" />
 	<input type="submit" value="Search" />
 </form>
 

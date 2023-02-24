@@ -1,75 +1,45 @@
- Goal:
-	Provide a reliable resource for deciding the validity of complex arguments.
+Goal
+----
 
-Means:
-	deconstruction
-		logical framework
-		recursion
-		tagging
-	reputation
-		weighted vote
-		democracy
-		gamification
-		consistency as predictor of good
+To provide a reliable resource for deciding the validity of complex arguments.
 
+Publishing
+----------
 
+When a new argument is created, it starts as a draft.
+The author can make changes and ask for advice/help from other users.
+The author has the power to remove any comments by other users to their argument.
+Once the author is satisfied, the argument is published. Only published arguments can be endorsed.
+Unpublishing in order to change an argument remove all votes.
+An argument cannot be changed after it has received 100 votes.
 
-when a new argument is created, it starts as a draft
-the author can make changes, and ask for advice/help from others
-once the author is satisfied, the argument is "published"
-published arguments can be voted on, and cannot be changed.
-users can "support" or "reject" arguments they author.
-the supporter of an argument may change their mind and reject it and vica versa.
-
-how are the validity of propositions evaluated?
-		atomic propositions are voted on
-		propositions that are the premise of one argument
-				may be the conclusions of another argument
-				in which case their validity takes that argument into account
-
-how do i evaluate the validity of argument 1?
-		check that conclusion follows from premise using formal logic
-		evaluate the validity of premises
-			premise 1 is the conclusion of argument 2
-				it is valid if argument 2 is valid
-				examine argument 2 for its currently calculated validity (not recursive)
-				apply that to premise 1
-			check validity of premise 2
-				voting history only since no arguments have been made
-
-Argument 1:
-if A then B -> wikipedia
-if B then C -> wikipedia
+Endorsement
 -----------
-if A then C -> valid
 
-Argument 2:
-if A then C -> Argument 1
-if C then B -> wikipedia
------------
-if A then B -> circular FALLACY
+Any users besides the author can endorse:
 
-Argument 3:
-if A then C -> wikipedia
-if C then B -> wikipedia
------------
-if A then B -> valid, but still in tension with argument 1
+	* That the structure of an argument is valid or invalid
+	* That an individual premise is sound or unsound
 
-http://en.wikipedia.org/wiki/Logical_form
-http://en.wikipedia.org/wiki/Principia_Mathematica
-http://en.wikipedia.org/wiki/List_of_valid_argument_forms
-http://en.wikipedia.org/wiki/Rule_of_inference
-http://en.wikipedia.org/wiki/Categorical_syllogism
-http://en.wikipedia.org/wiki/Propositional_calculus
-http://en.wikipedia.org/wiki/Second-order_logic
-http://en.wikipedia.org/wiki/Type_theory
+If a user endorses the validity and soundness of all premises they endorse the conclusion as true.
+If an endorsed conclusion is used as a premise for another argument, it's automatically endorsed it as sound.
+Automatic endorsement is made by strings comparison of the conclusion with premises of other arguments.
+This automatic endorsement cannot be changed by the user. Instead, the user has to re-evaluare the supporting argument.
+Users can change validity/soundness endorsements at any time.
+
+Social
+------
+
+Users can add friends and @ other users in comments.
+Users can opt in to notices:
+	- Friend published an argument
+	- Someone @ you in a comment
+	- Someone left a comment on your argument
 
 
-deductive reasoning (syllogisms):
+Future
+------
 
-soundness: is the premise true or not?
-validity: correct formal logic, checked by computer
-
-inductive reasoning:
-
-pile on the facts. not formal.
+Issues outside the scope of this project:
+ - Policing unlawful and inauthentic behavior
+ - User authentication

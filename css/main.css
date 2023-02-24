@@ -1,0 +1,51 @@
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	font-family: sans-serif;
+}
+
+menu li {
+	display: inline;
+}
+
+menu li:after {
+	content: " |";
+}
+
+menu li:last-child:after {
+	content: "";
+}
+
+body > * {
+	padding: 5px 10px;
+}
+
+header {
+	background-color: #eee;
+	border-bottom: 1px solid #aaa;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+}
+
+header > * {
+	align-self: center;
+}
+
+header nav menu {
+	font-size: larger;
+}
+
+main {
+	padding: 10px;
+}
+
+footer {
+	text-align: center;
+}
+
+footer menu,
+footer menu li {
+	font-size: 12px;
+}

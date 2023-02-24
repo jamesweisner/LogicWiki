@@ -1,8 +1,0 @@
-# Categorical propositions
-All _ are _.
-All _ are not _.
-Some _ are _.
-Some _ are not _.
-If _ then _.
-
-# 
