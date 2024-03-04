@@ -11,8 +11,21 @@ class Argument
 		$this->data = DB::row("SELECT * FROM argument WHERE arg_id = %d", array($arg_id));
 		if(!$this->data)
 			throw new Exception('Argument not found.');
-		foreach(DB::all("SELECT * FROM premise WHERE arg_id = %d", array($arg_id)))
+		foreach(DB::all("SELECT * FROM premise WHERE arg_id = %d", array($arg_id)) as $p)
 			$this->premises[$p['num']] = $p['prop_id'];
+	}
+
+	public function new($conclusion, $premises)
+	{
+		$this->arg_id = DB::insert('argument', array(
+			'conclusion'   => $conclusion,
+			'author'       => $_SESSION['user_id'],
+			'version'      => 0,
+			'published'    => 0,
+			'popularity'   => 0,
+			'endorsements' => 0,
+		));
+		$this->premises = $;
 	}
 
 	public function endorse_validity($support, $remove)
@@ -29,7 +42,7 @@ class Argument
 				DELETE FROM endorsement
 				WHERE user_id = %d
 				AND arg_id = %d
-			", array($_SESSION['user_id'], $this->arg_id);
+			", array($_SESSION['user_id'], $this->arg_id));
 		}
 		else
 		{
@@ -58,7 +71,7 @@ class Argument
 				DELETE FROM endorsement
 				WHERE user_id = %d
 				AND prop_id = %d
-			", array($_SESSION['user_id'], $prop_id);
+			", array($_SESSION['user_id'], $prop_id));
 		}
 		else
 		{

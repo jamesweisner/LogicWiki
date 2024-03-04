@@ -41,6 +41,25 @@ main {
 	padding: 10px;
 }
 
+main textarea,
+main input[type=text] {
+	font-size: 18px;
+	padding: 3px 5px;
+	border: 1px solid #888;
+}
+
+main input[type=submit],
+main input[type=button] {
+	padding: 3px 8px;
+	font-size: 20px;
+	font-weight: bold;
+	border: 1px solid #888;
+}
+
+main div#argument > div {
+	margin-bottom: 15px;
+}
+
 footer {
 	text-align: center;
 }

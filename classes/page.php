@@ -12,7 +12,7 @@ class Page
 	public static function parse()
 	{
 		$api = false;
-		$action = $_POST ? strtolower($_POST['action']) : null;
+		$action = $_POST ? strtolower((string) $_POST['action']) : null;
 		$args = explode('/', firstOf(array($_GET['q'], '/')));
 		$page = (string) array_shift($args);
 		if($page == 'api')

@@ -18,10 +18,19 @@ try
 				'results' => Search::results(),
 			));
 		}
+		case 'new':
+		{
+			if($action) switch($action)
+			{
+				case 'save':
+					Argument::;
+			}
+			Page::show('new', 'New Argument', array());
+		}
 		case 'argument':
 		{
 			$arg_id = (int) array_shift($args);
-			$argument = Argument::get($arg_id);
+			$argument = new Argument($arg_id);
 			if($action) switch($action)
 			{
 				case 'validity':
@@ -160,6 +169,6 @@ catch(Exception | Error $e)
 	header('HTTP/1.0 500 Internal Server Error');
 	Page::show('error', 'Error', array(
 		'message' => $e->getMessage(),
-		'details' => $e->getTraceAsString(),
+		'details' => $e->getFile() . '(' . $e->getLine() . ")\n\n" . $e->getTraceAsString(),
 	));
 }
